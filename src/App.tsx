@@ -1,19 +1,28 @@
 import React from "react"
-import logo from "./logo.svg"
+import Popover from "./components/Popover/Popover"
 import "./App.css"
 
 function App() {
+  const content = (
+    <div>
+      <p>Content</p>
+      <p>Content</p>
+    </div>
+  )
+
+  const title = <span>Title</span>
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <Popover title={title} content={content} placement="top" trigger="click" />
+        <Popover title={title} content={content} placement="bottom" trigger="click" />
+      </div>
+
+      <div className="container">
+        <Popover title={title} content={content} placement="left" trigger="click" />
+        <Popover title={title} content={content} placement="right" trigger="click" />
+      </div>
     </div>
   )
 }

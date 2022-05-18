@@ -10,16 +10,8 @@ export default {
 
 const Template: ComponentStory<typeof LayerCard> = (args) => <LayerCard {...args} />
 
-export const Unselected = Template.bind({})
-Unselected.args = {
-  checked: false,
-  label: "Flood zone 3",
-  backgroundImage: CardMedia
-}
-
-export const Selected = Template.bind({})
-Selected.args = {
-  checked: true,
+export const Default = Template.bind({})
+Default.args = {
   label: "Flood zone 3",
   backgroundImage: CardMedia
 }
