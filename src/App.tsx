@@ -1,6 +1,8 @@
 import React from "react"
 import Popover from "./components/Popover/Popover"
 import "./App.css"
+import LayerCard from "./components/LayerCard/LayerCard"
+import CardMedia from "./assets/card-media.png"
 
 function App() {
   const content = (
@@ -15,13 +17,9 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <Popover title={title} content={content} placement="top" trigger="click" />
-        <Popover title={title} content={content} placement="bottom" trigger="click" />
-      </div>
-
-      <div className="container">
-        <Popover title={title} content={content} placement="left" trigger="click" />
-        <Popover title={title} content={content} placement="right" trigger="click" />
+        <Popover title={title} content={content} placement="top" trigger="click">
+          <LayerCard label={"Flood zone 3"} backgroundImage={CardMedia} />
+        </Popover>
       </div>
     </div>
   )

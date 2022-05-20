@@ -3,7 +3,8 @@ import useDebounce from "./useDebounce"
 import Container from "./StyledContainer"
 import Content from "./StyledContent"
 import Title from "./StyledTitle"
-import Button from "./StyledButton"
+import { Button } from "@mui/material"
+import { colors } from "../../styles/themes"
 
 type PopoverProps = {
   trigger: "click" | "hover"
@@ -23,7 +24,7 @@ export type Coords = {
   y: number
 }
 
-const Popover: React.FC<PopoverProps> = ({ trigger, title, content, placement }) => {
+const Popover: React.FC<PopoverProps> = ({ trigger, title, content, placement, children }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const [coords, setCoords] = useState<Coords>({
@@ -94,7 +95,16 @@ const Popover: React.FC<PopoverProps> = ({ trigger, title, content, placement })
 
   return (
     <div className="popover">
-      {trigger === "click" ? <Button ref={buttonRef}>Click {placement}</Button> : <Button ref={buttonRef}>Hover {placement}</Button>}
+      <button
+        ref={buttonRef}
+        style={{
+          cursor: "pointer",
+          borderWidth: 0,
+          backgroundColor: colors.white
+        }}
+      >
+        {children}
+      </button>
       {isOpen && (
         <Container className={placement} coords={coords}>
           <Title>{title}</Title>

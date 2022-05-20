@@ -22,8 +22,8 @@ const StyledContainer = styled.div`
     position: absolute;
   }
   &.top {
-    left: ${(props: Props) => props.coords.left + "px"};
-    bottom: ${(props: Props) => `calc(100% - ${props.coords.bottom + props.coords.height - 10}px)`};
+    right: ${(props: Props) => props.coords.left - 10 + "px"};
+    top: ${(props: Props) => `${props.coords.width - props.coords.top}px`};
     transform: translate(-25%, -75%);
   }
   &.top:before {
@@ -33,7 +33,7 @@ const StyledContainer = styled.div`
   }
   &.right {
     right: ${(props: Props) => `calc(100% - ${props.coords.left + props.coords.width + 10}px)`};
-    bottom: ${(props: Props) => `calc(100% - ${props.coords.bottom + props.coords.height}px)`};
+    top: ${(props: Props) => `${props.coords.top + 10}px`};
     transform: translate(100%, 0%);
   }
   &.right:before {
@@ -43,7 +43,7 @@ const StyledContainer = styled.div`
   }
   &.left {
     left: ${(props: Props) => props.coords.left - 10 + "px"};
-    bottom: ${(props: Props) => `calc(100% - ${props.coords.bottom + props.coords.height}px)`};
+    top: ${(props: Props) => `${props.coords.top + 10}px`};
     transform: translate(-100%, 0%);
   }
   &.left:before {
@@ -52,8 +52,8 @@ const StyledContainer = styled.div`
     transform: rotate(90deg);
   }
   &.bottom {
-    left: ${(props: Props) => props.coords.left + 10 + "px"};
-    top: ${(props: Props) => `${props.coords.height + props.coords.bottom + 20}px`};
+    right: ${(props: Props) => props.coords.left - 10 + "px"};
+    bottom: ${(props: Props) => `${props.coords.bottom - 10}px`};
     transform: translate(-25%, -75%);
   }
   &.bottom:before {
